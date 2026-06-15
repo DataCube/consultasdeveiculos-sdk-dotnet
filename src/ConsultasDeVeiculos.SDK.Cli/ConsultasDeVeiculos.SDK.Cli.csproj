@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>ConsultasDeVeiculos.SDK.Cli</RootNamespace>
+    <AssemblyName>consultas-de-veiculos-sdk</AssemblyName>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>consultas-de-veiculos-sdk</ToolCommandName>
+    <Version>1.0.0</Version>
+    <Authors>DATACUBE SERVICO DE INFORMACAO VIA WEB LTDA</Authors>
+    <Description>CLI para o SDK ConsultasDeVeiculos</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConsultasDeVeiculos.SDK\ConsultasDeVeiculos.SDK.csproj" />
+  </ItemGroup>
+
+</Project>

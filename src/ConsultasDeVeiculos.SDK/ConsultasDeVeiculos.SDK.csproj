@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>ConsultasDeVeiculos.SDK</RootNamespace>
+    <AssemblyName>ConsultasDeVeiculos.SDK</AssemblyName>
+    <Version>1.0.0</Version>
+    <Authors>DATACUBE SERVICO DE INFORMACAO VIA WEB LTDA</Authors>
+    <Description>SDK .NET do https://consultasdeveiculos.com - Runtime Engine que consome endpoints definidos em coleções Postman</Description>
+    <PackageId>ConsultasDeVeiculos.SDK</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/DataCube/consultasdeveiculos-sdk-dotnet</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DataCube/consultasdeveiculos-sdk-dotnet.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>sdk;consultasdeveiculos;api;veiculos;debitos</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="ConsultasDeVeiculos.SDK.Tests" />
+  </ItemGroup>
+
+  <!-- Download postman.json automaticamente no build (equivalente ao postinstall do npm) -->
+  <Target Name="DownloadPostmanSpec" BeforeTargets="Build" Condition="!Exists('..\..\spec\postman.json')">
+    <PropertyGroup>
+      <PostmanDownloadUrl Condition="'$(PostmanDownloadUrl)' == ''">https://painel.consultasdeveiculos.com/download-postman</PostmanDownloadUrl>
+      <PostmanSpecPath>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)\..\..\spec\postman.json'))</PostmanSpecPath>
+    </PropertyGroup>
+    <Message Text="📥 Baixando postman.json de $(PostmanDownloadUrl)..." Importance="high" />
+    <MakeDir Directories="$([System.IO.Path]::GetDirectoryName('$(PostmanSpecPath)'))" />
+    <DownloadFile SourceUrl="$(PostmanDownloadUrl)" DestinationFolder="$([System.IO.Path]::GetDirectoryName('$(PostmanSpecPath)'))" DestinationFileName="postman.json" />
+    <Message Text="✅ postman.json baixado com sucesso." Importance="high" />
+  </Target>
+
+</Project>
