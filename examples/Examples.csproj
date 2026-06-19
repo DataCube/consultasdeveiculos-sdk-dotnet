@@ -9,11 +9,11 @@
   <ItemGroup>
     <ProjectReference Include="..\src\ConsultasDeVeiculos.SDK\ConsultasDeVeiculos.SDK.csproj" />
   </ItemGroup>
-  <!-- Inclui apenas Program.cs na compilação. Os demais .cs são exemplos de referência -->
   <ItemGroup>
     <Compile Remove="BasicUsage.cs" />
     <Compile Remove="ErrorHandling.cs" />
     <Compile Remove="ExploreEndpoints.cs" />
     <Compile Remove="SandboxMode.cs" />
+    <Compile Remove="Program.cs" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,38 @@
+## Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider
+.idea/
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## Environment
+.env
+
+## Test results
+TestResults/
+coverage/
+
+## Postman spec (baixado automaticamente)
+spec/postman.json
+
+## Cache
+.consultas-de-veiculos-sdk/
